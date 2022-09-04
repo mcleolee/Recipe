@@ -22,6 +22,8 @@
 		97F3995B28C4EAF70044B25D /* home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F3995828C4EAF70044B25D /* home.swift */; };
 		97F3999B28C4F7100044B25D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F3999928C4F7100044B25D /* SceneDelegate.swift */; };
 		97F3999C28C4F7100044B25D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F3999A28C4F7100044B25D /* AppDelegate.swift */; };
+		97F399AA28C5037D0044B25D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F3999928C4F7100044B25D /* SceneDelegate.swift */; };
+		97F399AB28C5037D0044B25D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F3999928C4F7100044B25D /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -289,6 +291,7 @@
 				97F3995A28C4EAF70044B25D /* home.swift in Sources */,
 				97F3995628C4E12F0044B25D /* Recipe_ingredient.swift in Sources */,
 				97F3993C28C4DCE60044B25D /* RecipeTests.swift in Sources */,
+				97F399AA28C5037D0044B25D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97F399AB28C5037D0044B25D /* SceneDelegate.swift in Sources */,
 				97F3995728C4E12F0044B25D /* Recipe_ingredient.swift in Sources */,
 				97F3994828C4DCE60044B25D /* RecipeUITestsLaunchTests.swift in Sources */,
 				97F3995B28C4EAF70044B25D /* home.swift in Sources */,
