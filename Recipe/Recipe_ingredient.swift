@@ -49,7 +49,7 @@ var emptyIngredient:ingredient = ingredient(name: "") // 以自己的类为数�
 
 
 struct Recipe_ingredient: View {
-    @ObservedObject var main: main
+    @ObservedObject var main: Main
     @Binding var ingredient_index:Int
     @State var checked:Bool = false
     
@@ -96,14 +96,59 @@ struct Recipe_ingredient: View {
                             Image(systemName: "clock")
                                 .resizable()
                                 .frame(width: 12, height: 12)
-                            Date
+                            Text(formatter.string(from: main.ingredient[ingredient_index].dueDate))
+                                .font(.subheadline)
+                            Spacer()
                         }
+                        .foregroundColor(.gray)
                         
+                        Spacer()
+                            .frame(height: 12)
                     }
+                }
+            }
+            
+            Button(action:{
+                self.main.ingredient[self.ingredient_index].checked.toggle()
+                self.checked = self.main.ingredient[self.ingredient_index].checked
+                do
+                {
+                    let archived_data = try NSKeyedArchiver.archivedData(withRootObject: self.main.ingredient, requiringSecureCoding: false)
+                    UserDefaults.standard.set(archived_data, forKey: "ingredient")
+                } catch {
+                    print("error")
+                }
+                
+            }){
+                HStack
+                {
+                    Spacer()
+                        .frame(width: 12)
+                    
+                    VStack
+                    {
+                        Spacer()
+                        // 如果没被选，就用square图片，否则用前者
+                        Image(systemName: self.checked ? "checkmark.square.fill" : "square")
+                            .resizable()
+                            .frame(width: 24,height: 24)
+                            .foregroundColor(.gray)
+                        Spacer()
+                    }
+                    
+                    Spacer()
+                        .frame(width: 12)
                 }
                 
             }
+            .onAppear{
+                self.checked = self.main.ingredient[self.ingredient_index].checked
+            }
         }
+        .background(Color(self.checked ? "red" : "pink")) // 背景的颜色，勾选或没勾选
+        // animation 是IOS 15.0 的，我用的 IOS 16.0 开发，于是用 withAnimation 或者 animation(_:value)
+        .animation(.spring())
+        
         
         Text("hi")
         
@@ -112,6 +157,6 @@ struct Recipe_ingredient: View {
 
 struct Recipe_ingredient_Previews: PreviewProvider {
     static var previews: some View {
-        Recipe_ingredient()
+        Recipe_ingredient(main: Main(), ingredient_index: .constant(0))
     }
 }
