@@ -29,7 +29,7 @@ class ingredient: NSObject, NSCoding
 //    var icon:IconOnlyLabelStyle = 1
     
     // 如果要添加日期的话，这里可以写
-//    var dueDate:Date  = Date()
+    var dueDate:Date  = Date()
 
     
     init(name:String)

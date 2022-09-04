@@ -13,12 +13,22 @@ var edit_ingredient = emptyIngredient
 var edit_index      = 0
 var detailsShouldUpdateTitle:Bool = false // 当用户修改完的时候，这个变量变为 true 来提醒程序应该更新了
 
-class main:ObservedObject
+class main: ObservableObject
 {
     @Published var ingredient:[ingredient] = [] // 改变时，swift UI 可以实时更新，很强大的功能
     @Published var details_showing:Bool    = false
-    @Published var details_name            = ""
-    @Published var 
+    @Published var details_name:String     = ""
+    @Published var details_due_date:Date   = Date()
+    
+    func sort()
+    {
+        self.ingredient.sort(by: {$0.dueDate.timeIntervalSince1970 < $1.dueDate.timeIntervalSince1970})
+        for i in 0 ..< self.ingredient.count
+        {
+            self.ingredient[i].i = i
+        }
+    }
+    
 }
 
 
