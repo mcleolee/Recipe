@@ -39,6 +39,11 @@ class ingredient: NSObject, NSCoding
 }
 
 
+var emptyIngredient:ingredient = ingredient(name: "") // 以自己的类为数据类型的变量
+
+// 怎么存数据呢？
+// 新建一个 home 文件
+
 
 
 
