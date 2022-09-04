@@ -49,8 +49,64 @@ var emptyIngredient:ingredient = ingredient(name: "") // 以自己的类为数�
 
 
 struct Recipe_ingredient: View {
+    @ObservedObject var main: main
+    @Binding var ingredient_index:Int
+    @State var checked:Bool = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack
+        {
+            Button(action:{
+                edit_mode       = true
+                edit_ingredient = self.main.ingredient[self.ingredient_index]
+                edit_index      = self.ingredient_index
+                
+                self.main.details_name     = edit_ingredient.name
+                self.main.details_due_date = edit_ingredient.dueDate
+                self.main.details_showing  = true
+                
+                detailsShouldUpdateName   = true
+                
+            }){
+                HStack
+                {
+                    VStack
+                    {
+                        Rectangle()
+                            .fill(.blue)
+                            .frame(width: 8)
+                    }
+                    Spacer()
+                        .frame(width:10)
+                    VStack
+                    {
+                        Spacer()
+                            .frame(height: 12)
+                        HStack
+                        {
+                            Text(main.ingredient[ingredient_index].name)
+                                .font(.headline)
+                                .foregroundColor(.white)
+                            Spacer()
+                        }
+                        Spacer()
+                            .frame(height: 4)
+                        HStack
+                        {
+                            Image(systemName: "clock")
+                                .resizable()
+                                .frame(width: 12, height: 12)
+                            Date
+                        }
+                        
+                    }
+                }
+                
+            }
+        }
+        
+        Text("hi")
+        
     }
 }
 

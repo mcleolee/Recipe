@@ -11,7 +11,7 @@ import SwiftUI
 var edit_mode:Bool  = false
 var edit_ingredient = emptyIngredient
 var edit_index      = 0
-var detailsShouldUpdateTitle:Bool = false // 当用户修改完的时候，这个变量变为 true 来提醒程序应该更新了
+var detailsShouldUpdateName:Bool = false // 当用户修改完的时候，这个变量变为 true 来提醒程序应该更新了
 
 class main: ObservableObject
 {
