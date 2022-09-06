@@ -13,7 +13,7 @@ var edit_ingredient = emptyIngredient
 var edit_index      = 0
 var detailsShouldUpdateName:Bool = false // 当用户修改完的时候，这个变量变为 true 来提醒程序应该更新了
 
-class main: ObservableObject
+class Main: ObservableObject
 {
     @Published var ingredient:[ingredient] = [] // 改变时，swift UI 可以实时更新，很强大的功能
     @Published var details_showing:Bool    = false
@@ -36,7 +36,7 @@ class main: ObservableObject
 
 struct home: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("home page")
     }
 }
 

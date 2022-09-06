@@ -49,7 +49,7 @@ var emptyIngredient:ingredient = ingredient(name: "") // 以自己的类为数�
 
 
 struct Recipe_ingredient: View {
-    @ObservedObject var main: main
+    @ObservedObject var main: Main
     @Binding var ingredient_index:Int
     @State var checked:Bool = false
     
@@ -157,6 +157,6 @@ struct Recipe_ingredient: View {
 
 struct Recipe_ingredient_Previews: PreviewProvider {
     static var previews: some View {
-        Recipe_ingredient(main: main(), ingredient_index: .constant(0))
+        Recipe_ingredient(main: Main(), ingredient_index: .constant(0))
     }
 }
